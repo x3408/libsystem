@@ -13,6 +13,10 @@ public class LoginResult {
         return new LoginResult("404", "用户名或密码错误");
     }
 
+    public static LoginResult noAuthorization() {
+        return new LoginResult("401", "请登陆后在尝试该操作");
+    }
+
     public static LoginResult success() {
         return new LoginResult("200", "登陆成功");
     }

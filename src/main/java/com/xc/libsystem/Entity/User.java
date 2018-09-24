@@ -58,9 +58,9 @@ public class User {
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "user_book",
             joinColumns = {
-            @JoinColumn(name = "user_id", referencedColumnName = "uid")},
+            @JoinColumn(name = "uid", referencedColumnName = "uid")},
             inverseJoinColumns = {
-            @JoinColumn(name = "book_id", referencedColumnName = "bid")})
+            @JoinColumn(name = "bid", referencedColumnName = "bid")})
     public Set<Book> getBooks() {
         return books;
     }

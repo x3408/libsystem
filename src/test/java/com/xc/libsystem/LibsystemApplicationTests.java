@@ -2,6 +2,7 @@ package com.xc.libsystem;
 
 import com.xc.libsystem.Controller.UserController;
 import com.xc.libsystem.Entity.User;
+import com.xc.libsystem.Repository.BookRepository;
 import com.xc.libsystem.Repository.UserRepository;
 import com.xc.libsystem.Service.UserService;
 import com.xc.libsystem.Util.LoginResult;
@@ -21,6 +22,8 @@ public class LibsystemApplicationTests {
     private UserService userService;
     @Autowired
     private UserController userController;
+    @Autowired
+    private BookRepository bookRepository;
 
     @Test
     public void contextLoads() {
@@ -41,5 +44,14 @@ public class LibsystemApplicationTests {
     public void getUser() {
         User one = userService.getUser(1);
         System.out.println(one.getUsername());
+    }
+
+    @Test
+    public void getUserBooksNum() {
+        User user = new User();
+        user.setUid(1);
+
+        Integer userCollectBooksNum = bookRepository.getUserCollectBooksNum(1);
+        System.out.println(userCollectBooksNum);
     }
 }
